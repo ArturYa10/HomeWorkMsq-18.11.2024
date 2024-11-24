@@ -1,4 +1,4 @@
-# HomeWorkMsq-18.11.2024
+# HomeWorkMysql-18.11.2024
 
 SELECT MIN(c.RATING) AS minrating
 FROM Orders o
