@@ -1,1 +1,20 @@
 # HomeWorkMsq-18.11.2024
+
+SELECT MIN(c.RATING) AS minrating
+FROM Orders o
+JOIN Customers c ON o.CUST_ID = c.CUST_ID
+WHERE o.ODATE BETWEEN '2022-05-01' AND '2022-05-31';
+
+
+
+
+
+WITH MaxAmt AS (
+    SELECT MAX(o.AMT) AS max_amt
+    FROM Orders o
+    WHERE o.ODATE BETWEEN '2022-03-01' AND '2022-05-31'
+)
+SELECT o.SELL_ID, o.AMT
+FROM Orders o, MaxAmt
+WHERE o.AMT = MaxAmt.max_amt
+  AND o.ODATE BETWEEN '2022-03-01' AND '2022-05-31';
